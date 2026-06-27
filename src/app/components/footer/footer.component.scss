@@ -1,0 +1,189 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.footer {
+  background: $black-matte;
+  position: relative;
+
+  &__divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212, 165, 36, 0.3), transparent);
+  }
+
+  &__container {
+    @include container();
+    padding-top: $space-4xl;
+    padding-bottom: $space-2xl;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: $space-3xl;
+    margin-bottom: $space-3xl;
+
+    @include respond-to(lg) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: 1fr;
+      gap: $space-2xl;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $space-lg;
+  }
+
+  &__logo-text {
+    font-family: $font-heading;
+    font-weight: 800;
+    font-size: $font-size-2xl;
+    color: $amber-primary;
+    letter-spacing: 0.15em;
+  }
+
+  &__logo-sub {
+    font-family: $font-subheading;
+    font-weight: 500;
+    font-size: $font-size-xs;
+    color: $white-muted;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    font-family: $font-body;
+    font-size: $font-size-sm;
+    color: $white-muted;
+    line-height: 1.7;
+    margin-bottom: $space-xl;
+    max-width: 350px;
+  }
+
+  &__social {
+    display: flex;
+    gap: $space-md;
+  }
+
+  &__social-link {
+    width: 40px;
+    height: 40px;
+    @include flex-center();
+    @include glass(0.5, 8px, 0.1);
+    border-radius: $radius-md;
+    color: $white-muted;
+    transition: all $transition-base;
+
+    :host ::ng-deep svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover {
+      color: $amber-primary;
+      border-color: rgba(212, 165, 36, 0.4);
+      @include glow($amber-primary, 15px, 0.2);
+      transform: translateY(-2px);
+    }
+  }
+
+  &__links-title {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: $font-size-base;
+    color: $white-soft;
+    margin-bottom: $space-xl;
+    position: relative;
+    padding-bottom: $space-md;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background: $amber-primary;
+      border-radius: $radius-full;
+    }
+  }
+
+  &__links ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+
+    a {
+      font-family: $font-body;
+      font-size: $font-size-sm;
+      color: $white-muted;
+      cursor: pointer;
+      transition: color $transition-base;
+
+      &:hover {
+        color: $amber-primary;
+      }
+    }
+  }
+
+  &__contact ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: $space-lg;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    span, a {
+      font-family: $font-body;
+      font-size: $font-size-sm;
+      color: $white-muted;
+    }
+
+    a {
+      transition: color $transition-base;
+      &:hover { color: $amber-primary; }
+    }
+  }
+
+  &__contact-label {
+    font-weight: 600;
+    color: $white-soft !important;
+    font-size: $font-size-xs !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 2px;
+  }
+
+  &__bottom {
+    border-top: 1px solid $graphite-light;
+    padding-top: $space-xl;
+    @include flex-between();
+
+    @include respond-to(sm) {
+      flex-direction: column;
+      text-align: center;
+      gap: $space-sm;
+    }
+
+    p {
+      font-family: $font-body;
+      font-size: $font-size-xs;
+      color: $white-dim;
+    }
+  }
+
+  &__credits {
+    color: $gray-light !important;
+    font-style: italic;
+  }
+}

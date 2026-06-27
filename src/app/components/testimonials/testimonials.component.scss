@@ -1,0 +1,155 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.testimonials {
+  @include section-padding();
+  background: $black-deep;
+
+  &__container {
+    @include container();
+  }
+
+  &__carousel {
+    display: flex;
+    align-items: center;
+    gap: $space-xl;
+    max-width: 800px;
+    margin: 0 auto;
+
+    @include respond-to(sm) {
+      gap: $space-sm;
+    }
+  }
+
+  &__nav {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    @include flex-center();
+    @include glass(0.5, 10px, 0.15);
+    border-radius: $radius-full;
+    color: $white-muted;
+    transition: all $transition-base;
+
+    &:hover {
+      color: $amber-primary;
+      border-color: rgba(212, 165, 36, 0.4);
+      @include glow($amber-primary, 15px, 0.2);
+    }
+
+    @include respond-to(sm) {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+    }
+  }
+
+  &__slides {
+    flex: 1;
+    position: relative;
+    min-height: 320px;
+    @include flex-center();
+  }
+
+  &__card {
+    position: absolute;
+    width: 100%;
+    @include glass(0.6, 16px, 0.1);
+    border-radius: $radius-xl;
+    padding: $space-3xl $space-2xl;
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.9) translateX(30px);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: none;
+
+    &.active {
+      opacity: 1;
+      transform: scale(1) translateX(0);
+      pointer-events: all;
+    }
+  }
+
+  &__avatar {
+    width: 64px;
+    height: 64px;
+    @include flex-center();
+    border-radius: $radius-full;
+    background: linear-gradient(135deg, $amber-dark, $amber-primary);
+    margin: 0 auto $space-lg;
+    border: 2px solid rgba(212, 165, 36, 0.3);
+
+    span {
+      font-family: $font-heading;
+      font-weight: 700;
+      font-size: $font-size-lg;
+      color: $black-deep;
+    }
+  }
+
+  &__stars {
+    display: flex;
+    justify-content: center;
+    gap: $space-xs;
+    margin-bottom: $space-lg;
+
+    svg {
+      filter: drop-shadow(0 0 3px rgba(212, 165, 36, 0.3));
+    }
+  }
+
+  &__comment {
+    font-family: $font-body;
+    font-size: $font-size-base;
+    color: $white-muted;
+    line-height: 1.8;
+    font-style: italic;
+    margin-bottom: $space-xl;
+
+    @include respond-to(sm) {
+      font-size: $font-size-sm;
+    }
+  }
+
+  &__name {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: $font-size-base;
+    color: $white-soft;
+  }
+
+  &__role {
+    font-family: $font-body;
+    font-size: $font-size-xs;
+    color: $amber-primary;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: $space-sm;
+    margin-top: $space-2xl;
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: $radius-full;
+    background: $graphite-light;
+    border: 1px solid transparent;
+    transition: all $transition-base;
+    cursor: pointer;
+
+    &.active {
+      background: $amber-primary;
+      @include glow($amber-primary, 8px, 0.3);
+      transform: scale(1.2);
+    }
+
+    &:hover:not(.active) {
+      background: $gray-dark;
+    }
+  }
+}

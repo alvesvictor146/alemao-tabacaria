@@ -1,0 +1,78 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.experience {
+  @include section-padding($space-5xl);
+  background: $black-deep;
+  position: relative;
+  overflow: hidden;
+
+  &__bg-pattern {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(212, 165, 36, 0.04) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(212, 165, 36, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  &__container {
+    @include container();
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-4xl;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+
+    @include respond-to(lg) {
+      grid-template-columns: 1fr;
+      gap: $space-3xl;
+    }
+  }
+
+  &__label {
+    font-family: $font-subheading;
+    font-weight: 600;
+    font-size: $font-size-sm;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $amber-primary;
+    display: block;
+    margin-bottom: $space-md;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: $font-size-4xl;
+    color: $white-soft;
+    line-height: 1.2;
+    margin-bottom: $space-xl;
+
+    @include respond-to(md) { font-size: $font-size-3xl; }
+  }
+
+  &__subtitle {
+    font-family: $font-body;
+    font-size: $font-size-lg;
+    color: $white-muted;
+    line-height: 1.7;
+  }
+
+  &__image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__image {
+    max-width: 100%;
+    height: auto;
+    border-radius: $radius-lg;
+    border: 2px solid rgba(212, 165, 36, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 165, 36, 0.2);
+    object-fit: cover;
+    max-height: 500px;
+  }
+}

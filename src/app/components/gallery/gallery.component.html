@@ -1,0 +1,61 @@
+<section id="gallery" class="gallery">
+  <div class="gallery__container">
+    <!-- Section Header -->
+    <div class="section-header" appScrollAnimate>
+      <span class="section-label">Galeria</span>
+      <h2 class="section-title">Momentos de <span class="text-gradient">Exclusividade</span></h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <!-- Masonry Grid -->
+    <div class="gallery__grid" appScrollAnimate>
+      @for (item of items; track item.title; let i = $index) {
+        <div class="gallery__item" [class]="'gallery__item--' + (i + 1)" (click)="openLightbox(i)">
+          <img [src]="item.image" [alt]="item.title" loading="lazy">
+          <div class="gallery__item-overlay">
+            <span class="gallery__item-category">{{ item.category }}</span>
+            <h3 class="gallery__item-title">{{ item.title }}</h3>
+            <div class="gallery__item-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+                <path d="M11 8v6M8 11h6"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  @if (lightboxOpen()) {
+    <div class="lightbox" (click)="closeLightbox()">
+      <div class="lightbox__content" (click)="$event.stopPropagation()">
+        <button class="lightbox__close" (click)="closeLightbox()" aria-label="Fechar">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+
+        <button class="lightbox__nav lightbox__nav--prev" (click)="prevImage()" aria-label="Anterior">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+
+        <img [src]="currentItem.image" [alt]="currentItem.title" class="lightbox__image">
+
+        <button class="lightbox__nav lightbox__nav--next" (click)="nextImage()" aria-label="Próximo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
+
+        <div class="lightbox__info">
+          <span class="lightbox__category">{{ currentItem.category }}</span>
+          <h3 class="lightbox__title">{{ currentItem.title }}</h3>
+        </div>
+      </div>
+    </div>
+  }
+</section>

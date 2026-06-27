@@ -1,0 +1,22 @@
+<section id="experience" class="experience">
+  <!-- Background Pattern -->
+  <div class="experience__bg-pattern"></div>
+
+  <div class="experience__container">
+    <!-- Left Content -->
+    <div class="experience__content" appScrollAnimate [hiddenClass]="'scroll-hidden-left'" [animationClass]="'scroll-visible-left'">
+      <span class="experience__label">Destaque do Mês</span>
+      <h2 class="experience__title">
+        Funcionário do Mês:<br> <span class="text-gradient">Dieguinho</span>
+      </h2>
+      <p class="experience__subtitle">
+        Com uma energia contagiante e dedicação ímpar, Dieguinho elevou o padrão do nosso atendimento. Sua simpatia e atenção aos detalhes garantem que cada cliente tenha uma experiência verdadeiramente premium. Muito obrigado por fazer a diferença, Dieguinho!
+      </p>
+    </div>
+
+    <!-- Right Content (Image) -->
+    <div class="experience__image-container" appScrollAnimate [hiddenClass]="'scroll-hidden-right'" [animationClass]="'scroll-visible-right'">
+      <img src="images/dieguinho.jpeg" alt="Dieguinho - Funcionário do Mês" class="experience__image">
+    </div>
+  </div>
+</section>

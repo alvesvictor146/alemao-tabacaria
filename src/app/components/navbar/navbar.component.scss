@@ -1,0 +1,197 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-sticky;
+  padding: $space-md 0;
+  transition: all $transition-base;
+  background: transparent;
+
+  &.scrolled {
+    @include glass-heavy(20px);
+    padding: $space-sm 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  &__container {
+    @include container();
+    @include flex-between();
+  }
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    line-height: 1;
+    user-select: none;
+  }
+
+  &__logo-text {
+    font-family: $font-heading;
+    font-weight: 800;
+    font-size: $font-size-xl;
+    color: $amber-primary;
+    letter-spacing: 0.15em;
+  }
+
+  &__logo-sub {
+    font-family: $font-subheading;
+    font-weight: 500;
+    font-size: $font-size-xs;
+    color: $white-muted;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+
+  &__menu {
+    display: flex;
+    gap: $space-lg;
+    list-style: none;
+
+    @include respond-to(lg) {
+      display: none;
+    }
+  }
+
+  &__link {
+    font-family: $font-body;
+    font-weight: 500;
+    font-size: $font-size-sm;
+    color: $white-muted;
+    cursor: pointer;
+    position: relative;
+    padding: $space-xs 0;
+    transition: color $transition-base;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: $amber-primary;
+      transition: width $transition-base;
+      border-radius: $radius-full;
+    }
+
+    &:hover,
+    &.active {
+      color: $amber-primary;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &__cta {
+    @include btn-base();
+    padding: $space-sm $space-lg;
+    font-size: $font-size-sm;
+    background: $amber-primary;
+    color: $black-deep;
+    border-radius: $radius-full;
+    font-weight: 600;
+
+    &:hover {
+      background: $amber-light;
+      @include glow($amber-primary, 20px, 0.3);
+      transform: translateY(-1px);
+    }
+
+    @include respond-to(lg) {
+      display: none;
+    }
+
+    svg {
+      flex-shrink: 0;
+    }
+  }
+
+  &__hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: $space-sm;
+    cursor: pointer;
+
+    @include respond-to(lg) {
+      display: flex;
+    }
+
+    span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: $white-soft;
+      transition: all $transition-base;
+      border-radius: $radius-full;
+    }
+
+    &.open {
+      span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+      span:nth-child(2) { opacity: 0; }
+      span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    }
+  }
+
+  &__mobile {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include glass-heavy(30px);
+    background: rgba(10, 10, 10, 0.95);
+    z-index: $z-overlay;
+    @include flex-center();
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $transition-base;
+
+    @include respond-to(lg) {
+      display: flex;
+    }
+
+    &.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &__mobile-menu {
+    list-style: none;
+    text-align: center;
+    @include flex-column();
+    gap: $space-xl;
+  }
+
+  &__mobile-link {
+    font-family: $font-heading;
+    font-weight: 600;
+    font-size: $font-size-2xl;
+    color: $white-soft;
+    cursor: pointer;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $amber-primary;
+    }
+  }
+
+  &__mobile-cta {
+    @include btn-primary();
+    border-radius: $radius-full;
+    margin-top: $space-lg;
+
+    svg {
+      flex-shrink: 0;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<section id="about" class="about">
+  <div class="about__container">
+    <!-- Image Side -->
+    <div class="about__image-wrapper" appScrollAnimate [hiddenClass]="'scroll-hidden-left'" [animationClass]="'scroll-visible-left'">
+      <div class="about__image-frame">
+        <img src="images/about.png" alt="Interior premium da Alemão Tabacaria" loading="lazy">
+        <div class="about__image-glow"></div>
+      </div>
+      <div class="about__badge">
+        <span class="about__badge-number">+5</span>
+        <span class="about__badge-text">Anos de<br>Excelência</span>
+      </div>
+    </div>
+
+    <!-- Text Side -->
+    <div class="about__text" appScrollAnimate [hiddenClass]="'scroll-hidden-right'" [animationClass]="'scroll-visible-right'">
+      <span class="about__label">Sobre Nós</span>
+      <h2 class="about__title">Tradição, sofisticação <br>e <span class="text-gradient">inovação.</span></h2>
+      <div class="about__divider"></div>
+      <p class="about__description">
+        A <strong>Alemão Tabacaria</strong> nasceu da paixão por oferecer uma experiência única para apreciadores exigentes.
+        Cada produto é cuidadosamente selecionado para garantir qualidade, exclusividade e satisfação absoluta.
+      </p>
+      <p class="about__description">
+        Nosso espaço foi projetado para proporcionar momentos de relaxamento e sofisticação,
+        com um atendimento que entende suas preferências e supera suas expectativas.
+      </p>
+
+      <!-- Highlights -->
+      <ul class="about__highlights">
+        @for (item of highlights; track item.text) {
+          <li class="about__highlight-item">
+            <span class="about__highlight-icon">{{ item.icon }}</span>
+            <span>{{ item.text }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

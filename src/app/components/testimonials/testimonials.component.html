@@ -1,0 +1,66 @@
+<section id="testimonials" class="testimonials">
+  <div class="testimonials__container">
+    <!-- Section Header -->
+    <div class="section-header" appScrollAnimate>
+      <span class="section-label">Depoimentos</span>
+      <h2 class="section-title">O que dizem nossos <span class="text-gradient">clientes</span></h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <!-- Carousel -->
+    <div class="testimonials__carousel" (mouseenter)="pauseAutoPlay()" (mouseleave)="resumeAutoPlay()" appScrollAnimate>
+      <!-- Navigation Arrows -->
+      <button class="testimonials__nav testimonials__nav--prev" (click)="prev()" aria-label="Anterior">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+
+      <!-- Slides Container -->
+      <div class="testimonials__slides">
+        @for (testimonial of testimonials; track testimonial.name; let i = $index) {
+          <div class="testimonials__card" [class.active]="activeSlide() === i">
+            <!-- Avatar -->
+            <div class="testimonials__avatar">
+              <span>{{ testimonial.initials }}</span>
+            </div>
+
+            <!-- Stars -->
+            <div class="testimonials__stars">
+              @for (star of stars; track $index) {
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#D4A524">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              }
+            </div>
+
+            <!-- Comment -->
+            <p class="testimonials__comment">"{{ testimonial.comment }}"</p>
+
+            <!-- Name -->
+            <h4 class="testimonials__name">{{ testimonial.name }}</h4>
+            <span class="testimonials__role">Cliente</span>
+          </div>
+        }
+      </div>
+
+      <button class="testimonials__nav testimonials__nav--next" (click)="next()" aria-label="Próximo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Dots -->
+    <div class="testimonials__dots" appScrollAnimate>
+      @for (testimonial of testimonials; track testimonial.name; let i = $index) {
+        <button
+          class="testimonials__dot"
+          [class.active]="activeSlide() === i"
+          (click)="goTo(i)"
+          [attr.aria-label]="'Ir para depoimento ' + (i + 1)">
+        </button>
+      }
+    </div>
+  </div>
+</section>

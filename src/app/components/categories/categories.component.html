@@ -1,0 +1,22 @@
+<section id="categories" class="categories">
+  <div class="categories__container">
+    <!-- Section Header -->
+    <div class="section-header" appScrollAnimate>
+      <span class="section-label">Nossos Produtos</span>
+      <h2 class="section-title">Categorias <span class="text-gradient">Premium</span></h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="categories__grid">
+      @for (cat of categories; track cat.title; let i = $index) {
+        <div class="categories__card" appScrollAnimate [animationDelay]="(i * 0.1) + 's'">
+          <div class="categories__card-icon" [innerHTML]="cat.icon"></div>
+          <h3 class="categories__card-title">{{ cat.title }}</h3>
+          <p class="categories__card-desc">{{ cat.description }}</p>
+          <div class="categories__card-shine"></div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

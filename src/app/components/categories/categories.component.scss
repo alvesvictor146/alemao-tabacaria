@@ -1,0 +1,93 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.categories {
+  @include section-padding();
+  background: $black-deep;
+  position: relative;
+
+  &__container {
+    @include container();
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-lg;
+
+    @include respond-to(xl) { grid-template-columns: repeat(3, 1fr); }
+    @include respond-to(lg) { grid-template-columns: repeat(2, 1fr); }
+    @include respond-to(sm) { grid-template-columns: 1fr; }
+  }
+
+  &__card {
+    @include glass(0.6, 16px, 0.1);
+    border-radius: $radius-lg;
+    padding: $space-2xl $space-xl;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all $transition-base;
+
+    &:hover {
+      transform: translateY(-8px);
+      border-color: rgba(212, 165, 36, 0.4);
+      @include glow($amber-primary, 30px, 0.15);
+
+      .categories__card-icon {
+        transform: scale(1.1);
+        color: $amber-light;
+        filter: drop-shadow(0 0 10px rgba(212, 165, 36, 0.5));
+      }
+
+      .categories__card-shine {
+        transform: translateX(200%);
+      }
+    }
+  }
+
+  &__card-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto $space-lg;
+    color: $amber-primary;
+    transition: all $transition-base;
+
+    :host ::ng-deep svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__card-title {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: $font-size-lg;
+    color: $white-soft;
+    margin-bottom: $space-sm;
+  }
+
+  &__card-desc {
+    font-family: $font-body;
+    font-size: $font-size-sm;
+    color: $white-muted;
+    line-height: 1.6;
+  }
+
+  &__card-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(212, 165, 36, 0.05),
+      transparent
+    );
+    transition: transform 0.6s ease;
+    pointer-events: none;
+  }
+}

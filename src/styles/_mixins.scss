@@ -1,0 +1,190 @@
+// ============================================
+// ALEMÃO TABACARIA — SCSS Mixins
+// ============================================
+
+@use 'variables' as *;
+
+// === Responsive Breakpoints ===
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == xs { @media (max-width: #{$breakpoint-xs}) { @content; } }
+  @else if $breakpoint == sm { @media (max-width: #{$breakpoint-sm}) { @content; } }
+  @else if $breakpoint == md { @media (max-width: #{$breakpoint-md}) { @content; } }
+  @else if $breakpoint == lg { @media (max-width: #{$breakpoint-lg}) { @content; } }
+  @else if $breakpoint == xl { @media (max-width: #{$breakpoint-xl}) { @content; } }
+}
+
+@mixin min-width($breakpoint) {
+  @if $breakpoint == sm { @media (min-width: #{$breakpoint-sm}) { @content; } }
+  @else if $breakpoint == md { @media (min-width: #{$breakpoint-md}) { @content; } }
+  @else if $breakpoint == lg { @media (min-width: #{$breakpoint-lg}) { @content; } }
+  @else if $breakpoint == xl { @media (min-width: #{$breakpoint-xl}) { @content; } }
+}
+
+// === Glassmorphism ===
+@mixin glass($opacity: 0.7, $blur: 20px, $border-opacity: 0.15) {
+  background: rgba(18, 18, 18, $opacity);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid rgba(212, 165, 36, $border-opacity);
+}
+
+@mixin glass-light($opacity: 0.5, $blur: 16px) {
+  background: rgba(26, 26, 26, $opacity);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+@mixin glass-heavy($blur: 30px) {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid rgba(212, 165, 36, 0.2);
+}
+
+// === Gradients ===
+@mixin gradient-amber($direction: 135deg) {
+  background: linear-gradient($direction, $amber-dark, $amber-primary, $amber-light);
+}
+
+@mixin gradient-dark($direction: 180deg) {
+  background: linear-gradient($direction, $black-deep, $graphite);
+}
+
+@mixin gradient-text() {
+  background: linear-gradient(135deg, $amber-primary, $amber-light);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// === Glow Effects ===
+@mixin glow($color: $amber-primary, $size: 30px, $opacity: 0.3) {
+  box-shadow: 0 0 $size rgba($color, $opacity);
+}
+
+@mixin text-glow($color: $amber-primary, $opacity: 0.5) {
+  text-shadow: 0 0 20px rgba($color, $opacity), 0 0 40px rgba($color, $opacity * 0.5);
+}
+
+// === Hover 3D Effect ===
+@mixin hover-lift($y: -8px, $shadow: true) {
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY($y);
+    @if $shadow {
+      box-shadow: $shadow-lg, $shadow-glow-sm;
+    }
+  }
+}
+
+// === Container ===
+@mixin container() {
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+  width: 100%;
+}
+
+// === Section Padding ===
+@mixin section-padding($vertical: $space-5xl) {
+  padding: $vertical $container-padding;
+
+  @include respond-to(md) {
+    padding: $space-3xl $space-md;
+  }
+}
+
+// === Flex Utilities ===
+@mixin flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column() {
+  display: flex;
+  flex-direction: column;
+}
+
+// === Button Base ===
+@mixin btn-base() {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-sm;
+  padding: $space-md $space-xl;
+  border: none;
+  border-radius: $radius-md;
+  font-family: $font-subheading;
+  font-weight: 600;
+  font-size: $font-size-base;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all $transition-base;
+  white-space: nowrap;
+}
+
+@mixin btn-primary() {
+  @include btn-base();
+  @include gradient-amber();
+  color: $black-deep;
+
+  &:hover {
+    @include glow($amber-primary, 40px, 0.5);
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@mixin btn-outline() {
+  @include btn-base();
+  background: transparent;
+  color: $amber-primary;
+  border: 2px solid $amber-primary;
+
+  &:hover {
+    background: rgba(212, 165, 36, 0.1);
+    @include glow($amber-primary, 20px, 0.2);
+    transform: translateY(-2px);
+  }
+}
+
+// === Scroll Animation Placeholder ===
+@mixin scroll-reveal() {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// === Decorative Line ===
+@mixin amber-line($width: 60px, $height: 3px) {
+  content: '';
+  display: block;
+  width: $width;
+  height: $height;
+  background: linear-gradient(90deg, $amber-primary, $amber-light);
+  border-radius: $radius-full;
+}
+
+// === Aspect Ratio ===
+@mixin aspect-ratio($width, $height) {
+  aspect-ratio: $width / $height;
+  object-fit: cover;
+}

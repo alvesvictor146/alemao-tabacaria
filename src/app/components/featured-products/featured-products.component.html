@@ -1,0 +1,32 @@
+<section id="products" class="products">
+  <div class="products__container">
+    <!-- Section Header -->
+    <div class="section-header" appScrollAnimate>
+      <span class="section-label">Destaques</span>
+      <h2 class="section-title">Produtos em <span class="text-gradient">Destaque</span></h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="products__grid">
+      @for (product of products(); track product.name; let i = $index) {
+        <div class="products__card" appScrollAnimate [animationDelay]="(i * 0.12) + 's'">
+          <div class="products__card-image">
+            <img [src]="product.image" [alt]="product.name" loading="lazy">
+            <div class="products__card-overlay">
+              <button class="products__card-btn" (click)="openWhatsApp(product.name)">
+                Saiba Mais
+              </button>
+            </div>
+          </div>
+          <div class="products__card-body">
+            <span class="products__card-category">{{ product.category }}</span>
+            <h3 class="products__card-name">{{ product.name }}</h3>
+            <p class="products__card-desc">{{ product.description }}</p>
+          </div>
+          <div class="products__card-reflection"></div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

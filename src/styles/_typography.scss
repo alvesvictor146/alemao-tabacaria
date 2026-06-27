@@ -1,0 +1,133 @@
+// ============================================
+// ALEMÃO TABACARIA — Typography
+// ============================================
+
+@use 'variables' as *;
+
+// === Heading Styles ===
+.heading-1 {
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: $font-size-6xl;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: $white-soft;
+
+  @media (max-width: $breakpoint-lg) { font-size: $font-size-5xl; }
+  @media (max-width: $breakpoint-md) { font-size: $font-size-4xl; }
+  @media (max-width: $breakpoint-sm) { font-size: $font-size-3xl; }
+}
+
+.heading-2 {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: $font-size-4xl;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: $white-soft;
+
+  @media (max-width: $breakpoint-md) { font-size: $font-size-3xl; }
+  @media (max-width: $breakpoint-sm) { font-size: $font-size-2xl; }
+}
+
+.heading-3 {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: $font-size-2xl;
+  line-height: 1.3;
+  color: $white-soft;
+
+  @media (max-width: $breakpoint-md) { font-size: $font-size-xl; }
+}
+
+.heading-4 {
+  font-family: $font-subheading;
+  font-weight: 600;
+  font-size: $font-size-xl;
+  line-height: 1.4;
+  color: $white-soft;
+}
+
+// === Subtitles ===
+.subtitle {
+  font-family: $font-subheading;
+  font-weight: 500;
+  font-size: $font-size-lg;
+  line-height: 1.6;
+  color: $white-muted;
+
+  @media (max-width: $breakpoint-md) { font-size: $font-size-base; }
+}
+
+.subtitle-sm {
+  font-family: $font-subheading;
+  font-weight: 500;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  color: $white-muted;
+}
+
+// === Body Text ===
+.body-text {
+  font-family: $font-body;
+  font-weight: 400;
+  font-size: $font-size-base;
+  line-height: 1.7;
+  color: $white-muted;
+}
+
+.body-text-sm {
+  font-family: $font-body;
+  font-weight: 400;
+  font-size: $font-size-sm;
+  line-height: 1.6;
+  color: $white-dim;
+}
+
+// === Special Text ===
+.text-amber {
+  color: $amber-primary;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, $amber-primary, $amber-light);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// === Section Title Block ===
+.section-header {
+  text-align: center;
+  margin-bottom: $space-3xl;
+
+  .section-label {
+    font-family: $font-subheading;
+    font-weight: 600;
+    font-size: $font-size-sm;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $amber-primary;
+    margin-bottom: $space-md;
+    display: block;
+  }
+
+  .section-title {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: $font-size-4xl;
+    color: $white-soft;
+    margin-bottom: $space-lg;
+
+    @media (max-width: $breakpoint-md) { font-size: $font-size-3xl; }
+    @media (max-width: $breakpoint-sm) { font-size: $font-size-2xl; }
+  }
+
+  .section-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, $amber-primary, $amber-light);
+    border-radius: $radius-full;
+    margin: 0 auto;
+  }
+}
