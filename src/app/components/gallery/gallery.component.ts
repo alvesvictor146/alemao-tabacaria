@@ -16,12 +16,12 @@ interface GalleryItem {
 })
 export class GalleryComponent {
   items: GalleryItem[] = [
-    { image: 'images/gallery-ambiente.png', title: 'Nosso Ambiente', category: 'Ambiente' },
-    { image: 'images/gallery-products.png', title: 'Produtos Exclusivos', category: 'Produtos' },
-    { image: 'images/gallery-drinks.png', title: 'Drinks Premium', category: 'Drinks' },
-    { image: 'images/gallery-hookah.png', title: 'Setup de Narguilé', category: 'Narguilés' },
-    { image: 'images/gallery-charutos.png', title: 'Coleção de Charutos', category: 'Charutos' },
-    { image: 'images/gallery-evento.png', title: 'Eventos Exclusivos', category: 'Eventos' },
+    { image: './images/gallery-ambiente.png', title: 'Nosso Ambiente', category: 'Ambiente' },
+    { image: './images/gallery-products.png', title: 'Produtos Exclusivos', category: 'Produtos' },
+    { image: './images/gallery-drinks.png', title: 'Drinks Premium', category: 'Drinks' },
+    { image: './images/gallery-hookah.png', title: 'Setup de Narguilé', category: 'Narguilés' },
+    { image: './images/gallery-charutos.png', title: 'Coleção de Charutos', category: 'Charutos' },
+    { image: './images/gallery-evento.png', title: 'Eventos Exclusivos', category: 'Eventos' },
   ];
 
   lightboxOpen = signal(false);

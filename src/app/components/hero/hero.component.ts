@@ -9,6 +9,8 @@ import { Component, OnInit, OnDestroy, ElementRef, ViewChild, signal, AfterViewI
 export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('particleCanvas', { static: false }) canvasRef!: ElementRef<HTMLCanvasElement>;
 
+  @ViewChild('heroVideo') videoRef?: ElementRef<HTMLVideoElement>;
+
   loaded = signal(false);
   private animationId = 0;
   private particles: Particle[] = [];
@@ -19,6 +21,9 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.initParticles();
+    if (this.videoRef?.nativeElement) {
+      this.videoRef.nativeElement.play().catch(e => console.log('Autoplay blocked:', e));
+    }
   }
 
   ngOnDestroy(): void {
