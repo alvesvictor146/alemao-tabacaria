@@ -22,7 +22,20 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     this.initParticles();
     if (this.videoRef?.nativeElement) {
-      this.videoRef.nativeElement.play().catch(e => console.log('Autoplay blocked:', e));
+      const video = this.videoRef.nativeElement;
+      video.muted = true;
+      video.loop = true;
+      video.defaultMuted = true;
+      video.playsInline = true;
+      
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(e => {
+          console.log('Autoplay blocked, attempting to play again:', e);
+          // Fallback: wait for user interaction to play
+          document.addEventListener('click', () => video.play(), { once: true });
+        });
+      }
     }
   }
 

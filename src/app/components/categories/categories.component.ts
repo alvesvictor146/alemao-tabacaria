@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ScrollAnimateDirective } from '../../shared/directives/scroll-animate.directive';
 
 @Component({
@@ -9,6 +10,8 @@ import { ScrollAnimateDirective } from '../../shared/directives/scroll-animate.d
   styleUrl: './categories.component.scss'
 })
 export class CategoriesComponent {
+  private sanitizer = inject(DomSanitizer);
+
   categories = [
     {
       title: 'Tabacos Premium',
@@ -50,5 +53,8 @@ export class CategoriesComponent {
       description: 'Combinações perfeitas para presentear ou se presentear.',
       icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8V3M3 12h18M7 3h4M13 3h4"/></svg>`
     }
-  ];
+  ].map(cat => ({
+    ...cat,
+    icon: this.sanitizer.bypassSecurityTrustHtml(cat.icon) as SafeHtml
+  }));
 }
