@@ -16,12 +16,12 @@ interface GalleryItem {
 })
 export class GalleryComponent {
   items: GalleryItem[] = [
-    { image: './images/gallery-ambiente.png', title: 'Nosso Ambiente', category: 'Ambiente' },
-    { image: './images/gallery-products.png', title: 'Produtos Exclusivos', category: 'Produtos' },
-    { image: './images/gallery-drinks.png', title: 'Drinks Premium', category: 'Drinks' },
-    { image: './images/gallery-hookah.png', title: 'Setup de Narguilé', category: 'Narguilés' },
-    { image: './images/gallery-charutos.png', title: 'Coleção de Charutos', category: 'Charutos' },
-    { image: './images/gallery-evento.png', title: 'Eventos Exclusivos', category: 'Eventos' },
+    { image: './images/gallery-new-1.jpeg', title: 'Cases Personalizadas Sadhu', category: 'Acessórios' },
+    { image: './images/gallery-new-2.jpeg', title: 'Isqueiros RAW', category: 'Acessórios' },
+    { image: './images/gallery-new-3.jpeg', title: 'Seda Papelito Tradicional', category: 'Sedas' },
+    { image: './images/gallery-new-4.jpeg', title: 'Seda Papelito Slim', category: 'Sedas' },
+    { image: './images/gallery-new-5.jpeg', title: 'Kit Completo Rick and Morty', category: 'Kits Premium' },
+    { image: './images/gallery-new-6.jpeg', title: 'Kit Spliff Sadhu', category: 'Kits Exclusivos' },
   ];
 
   lightboxOpen = signal(false);
