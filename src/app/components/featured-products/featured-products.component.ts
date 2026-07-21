@@ -57,7 +57,7 @@ export class FeaturedProductsComponent {
 
   openWhatsApp(productName: string): void {
     const phone = '5511978983661';
-    const message = encodeURIComponent(`Olá! Vim pelo site e gostaria de saber mais sobre o produto: ${productName}`);
+    const message = encodeURIComponent(`Ola gostaria de saber mais sobre ${productName}.`);
     window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
   }
 }

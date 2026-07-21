@@ -10,7 +10,7 @@
     <!-- Products Grid -->
     <div class="products__grid">
       @for (product of products(); track product.name; let i = $index) {
-        <div class="products__card" appScrollAnimate [animationDelay]="(i * 0.12) + 's'">
+        <div class="products__card" appScrollAnimate [animationDelay]="(i * 0.12) + 's'" (click)="openWhatsApp(product.name)" style="cursor: pointer;">
           <div class="products__card-image">
             <img [src]="product.image" [alt]="product.name" loading="lazy">
             <div class="products__card-overlay">
