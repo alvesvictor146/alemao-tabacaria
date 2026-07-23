@@ -16,7 +16,6 @@ export class NavbarComponent {
     { label: 'Sobre', section: 'about' },
     { label: 'Categorias', section: 'categories' },
     { label: 'Produtos', section: 'products' },
-    { label: 'Funcionário do Mês', section: 'experience' },
     { label: 'Galeria', section: 'gallery' },
     { label: 'Depoimentos', section: 'testimonials' },
     { label: 'Localização', section: 'location' },
