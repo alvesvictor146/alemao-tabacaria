@@ -3,6 +3,7 @@
 
 .products {
   @include section-padding();
+  padding-top: 2rem;
   background: $graphite;
   position: relative;
 
