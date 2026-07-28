@@ -35,12 +35,12 @@ export class CategoriesComponent {
     },
     {
       title: 'Bebidas Premium',
-      description: 'Whiskies, vinhos, cervejas artesanais e drinks especiais.',
+      description: 'Whiskies e drinks especiais.',
       icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2l-2 8h12l-2-8H8zM6 10v2a6 6 0 0012 0v-2M12 18v4M8 22h8"/></svg>`
     },
     {
-      title: 'Copos e Taças',
-      description: 'Cristaleria premium para uma experiência completa.',
+      title: 'Bongs e Pipes',
+      description: 'Bongs e adereços para uma experiência completa.',
       icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2h8l-1 9a5 5 0 01-6 0L8 2zM12 14v6M8 20h8"/></svg>`
     },
     {

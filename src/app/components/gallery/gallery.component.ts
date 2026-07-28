@@ -22,6 +22,10 @@ export class GalleryComponent {
     { image: './images/gallery-new-4.jpeg', title: 'Seda Papelito Slim', category: 'Sedas' },
     { image: './images/gallery-new-5.jpeg', title: 'Kit Completo Rick and Morty', category: 'Kits Premium' },
     { image: './images/gallery-new-6.jpeg', title: 'Kit Spliff Sadhu', category: 'Kits Exclusivos' },
+    { image: './images/gallery-new-7.jpeg', title: 'Novidade Tabacaria', category: 'Lançamentos' },
+    { image: './images/gallery-new-8.jpeg', title: 'Novidade Tabacaria', category: 'Lançamentos' },
+    { image: './images/gallery-new-9.jpeg', title: 'Novidade Tabacaria', category: 'Lançamentos' },
+    { image: './images/gallery-new-10.jpeg', title: 'Novidade Tabacaria', category: 'Lançamentos' },
   ];
 
   lightboxOpen = signal(false);
