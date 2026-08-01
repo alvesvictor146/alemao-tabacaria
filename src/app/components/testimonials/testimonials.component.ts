@@ -36,10 +36,10 @@ export class TestimonialsComponent implements OnInit, OnDestroy {
       initials: 'BA'
     },
     {
-      name: 'Juliana Santos',
+      name: 'Lucas Martins',
       rating: 5,
-      comment: 'O espaço é lindo e os narguilés são de primeira. Virou meu lugar favorito para relaxar com os amigos.',
-      initials: 'JS'
+      comment: 'Loja muito organizada, com grande variedade de produtos e preços justos. O atendimento faz toda a diferença. Virei cliente fiel!',
+      initials: 'LM'
     },
     {
       name: 'Carlos Eduardo',

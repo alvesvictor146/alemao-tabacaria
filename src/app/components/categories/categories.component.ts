@@ -19,8 +19,8 @@ export class CategoriesComponent {
       icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17h18M3 17v-2a4 4 0 014-4h10a4 4 0 014 4v2M8 11V7a4 4 0 018 0v4"/></svg>`
     },
     {
-      title: 'Charutos Importados',
-      description: 'Os melhores charutos cubanos, dominicanos e hondurenhos.',
+      title: 'Charutos',
+      description: 'Os melhores charutos',
       icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="8" width="16" height="8" rx="4"/><path d="M20 12h2M2 12h2M12 8V6M12 16v2"/></svg>`
     },
     {
@@ -34,8 +34,8 @@ export class CategoriesComponent {
       icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="2" width="8" height="20" rx="4"/><path d="M12 18v-4M10 10h4"/></svg>`
     },
     {
-      title: 'Bebidas Premium',
-      description: 'Whiskies e drinks especiais.',
+      title: 'Bebidas',
+      description: 'Cervejas, água, sucos e energéticos',
       icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2l-2 8h12l-2-8H8zM6 10v2a6 6 0 0012 0v-2M12 18v4M8 22h8"/></svg>`
     },
     {
