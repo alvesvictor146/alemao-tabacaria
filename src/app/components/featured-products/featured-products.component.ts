@@ -31,9 +31,9 @@ export class FeaturedProductsComponent {
     },
     {
       name: 'Narguile Alfarid',
-      description: 'Narguilé premium com acabamento exclusivo, garantindo uma sessão perfeita.',
+      description: 'Narguilé Completo Premium une elegância, qualidade e excelente desempenho em um único produto.',
       category: 'Narguilés',
-      image: './images/narguile-alfarid.jpeg'
+      image: './WhatsApp Image 2026-08-01 at 12.06.34.jpeg'
     },
     {
       name: 'Seda sadhu Longa Edição Copa',
