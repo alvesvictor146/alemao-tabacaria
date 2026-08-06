@@ -30,7 +30,7 @@ export class FeaturedProductsComponent {
       image: './images/piteiras-pink-sadhu.jpeg'
     },
     {
-      name: 'Narguile Alfarid',
+      name: 'Narguile Zeus',
       description: 'Narguilé Completo Premium une elegância, qualidade e excelente desempenho em um único produto.',
       category: 'Narguilés',
       image: './WhatsApp Image 2026-08-01 at 12.06.34.jpeg'

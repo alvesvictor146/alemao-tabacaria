@@ -54,7 +54,7 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/alemao-tabacaria/",
+              "baseHref": "/",
               "budgets": [
                 {
                   "type": "initial",
